@@ -1,21 +1,31 @@
-include<iostream>
-using namespace std;
-#define VOLUME
-void volume(float l,float b,float h)
-{
-     float volume=l*b*h;
-     cout<<"The volume of the box : "<<volume<<endl;
-}
-#include <iostream>
-#include "boxArea.h"
-#include "boxvolume.h"
-
-// #ifdef void boxArea(float,float,float)
-    // #defined void boxArea(float,float,float)
-int main()
-{
-    boxArea(3,4,5);
-    boxvolume(6.1,3,1);
-    
-
+#include<iostream> 
+#include "areaBox.h" 
+#include "volumeBox.h" 
+using namespace std; 
+int main() 
+{ 
+    float length,breadth,height; 
+    cout<<"Enter the length, breadth, and height : "; 
+    cin>>length>>breadth>>height; 
+    #ifdef AREA 
+    {  
+          area(length,breadth,height); 
+    }  
+    #endif 
+    #ifndef AREA 
+    { 
+          cout<<"You have not included areaBox.h file"<<endl; 
+    } 
+    #endif 
+    #ifdef VOLUME 
+    { 
+          volume(length,breadth,height); 
+    } 
+    #endif 
+    #ifndef VOLUME 
+    { 
+            cout<<"You have not included volume.h file"<<endl; 
+    } 
+    #endif 
+    return 0; 
 }
